@@ -15,7 +15,7 @@ If we are unable to use an API to fetch real time concert data, we will use mock
 2. HTML and CSS coder - content and styling of the webpages.
 3. JS programmer/scripter- will handle most of the JS programming such as using OOP and functional programming concepts to add event listeners, form validation
 and appointment creation/booking, searching, updating and deletion functionality.
-*Note: The later functionality may be implemented by the Node.js & back-end programmer if this functionality is implemented as a part of the database's code and not the JS script.*
+*Note: The latter functionality may be implemented by the Node.js & back-end programmer if this functionality is implemented as a part of the database's code and not the JS script.*
 5. Node.js & back-end programmer + API researcher/access obtainer - will look into obtaining access to an API that fetches real time concert event and artist data in addition to programming the data fetching from this API, the email notification system and the database of the app with MongoDB or MySQL. If they can't use an API, they will simply implement mock data in the JS script. This role should be taken up by the project manager or the HTML and CSS coder.
 # API Suggestions
 Bandsintown has an API that has real time concert data for musicians, but obtaining ccess for a school project like this would be impossible.
