@@ -5,8 +5,13 @@ that you booked an event.
 There will be sign up and log in pages that will allow the user to make an account so that their email is connected to the app.
 Our application will use a calendar interface to allow the user to pick a day for their appointment.
 Concert dates will be highlighted in the calendar.
+However, if pre-populating the calendar with API data or mock data is too difficult,
+we will allow the user to pick any day from the calendar and set a concert reminder for
+that selected day.
 The user will be able to search for concerts and create a reminder for the day of the concert(s) that they'd like to attend.
 Users will be not only be able to create reminders, but also to delete, search and update their reminders.
+For this, we will use a page that tells the user all of the reminders that they've created.
+This will allow them to delete, filter and update reminders.
 Depending on the amount of time before the event that the user wants an alert to go off, they will get
 an email reminder that their event is coming up.
 If we are unable to use an API to fetch real time concert data, we will use mock data.
