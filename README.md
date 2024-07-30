@@ -25,7 +25,7 @@ and appointment creation/booking, searching, updating and deletion functionality
 # API Suggestions
 Bandsintown has an API that has real time concert data for musicians, but obtaining access for a school project like this would be impossible.
 **However, Spotify's API seems promising**. Link here: https://developer.spotify.com/documentation/web-api
-# Team Members
+# Team Members & Roles
 1. Asma Ramisa - **HTML & CSS coder**
 2. Brianna Hawkins - **Project Manager**, **Node.js & back-end programmer**
 3. Omaid Noori - **JS programmer/scripter**
