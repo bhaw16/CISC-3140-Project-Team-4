@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Event Reminders</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Concert Event Reminders</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+            <form name="ConcertForm" onsubmit="return validateForm()">
+
+                <label> First name: </label>
+                <input type="text" id="fname" name="fname"><br> 
+                
+                <label> Last Name: </label>
+                <input type="text" id="lname" name="lname"><br>
+
+                <fieldset id="Gender">
+                    <label> Gender: </label>
+                    <input type="radio" value="Male">
+                    <label> Male </label>
+                    <input type="radio" value="Female">
+                    <label> Female </label>
+                </fieldset>
+
+                <label> Email: </label>
+                <input type="text" id="email" name="email"><br>
+
+                <label> Date of Birth: </label>
+                <input type="date" id="dob" name="dob"><br>
+
+                <label>Create a Username: </label>
+                <input type="text" id="username" name="username"><br>
+
+                <label>Create a Password: </label>
+                <input type="password" id="password" name="password"><br>
+
+                <label>Re-Enter Password: </label>
+                <input type="password" id="password" name="password"><br>
+
+
+            
+                <input type="submit" value="Submit">
+
+            </form>
+
+    <footer>
+        <p>&copy; 2024 Concert Event Reminders</p>
+    </footer>
+</body>
+</html>
