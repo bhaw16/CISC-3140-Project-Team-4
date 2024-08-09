@@ -17,5 +17,13 @@
                 <td>3</td>
             </tr>
         </table>
+        <form hidden method="post"> <!--hide until user picks day on the Calendar using JS script-->
+            <input type="date-local" name="concert-date" required>
+            <!--use the setAttribute() function in the JS script to make
+            the placeholder value the selected date on the calendar-->
+            <input type="text" name="concert-name" placeholder="Name of Concert" required>
+            <input type="time" name="concert-time" required>
+            <input type="submit">
+        </form>
     </body>
 </html>
