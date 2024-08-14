@@ -15,6 +15,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post("/signup", async (req, res) => {
+    var user = await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        gender: req.body.Gender,
+        birthday: req.body.dob,
+        firstname: req.body.fname,
+        lastname: req.body.lname
+    });
+    return res.status(200).json(user);
+});
+
 server.listen(3000, () => console.log("Server listening on port 3000"));
 
 
