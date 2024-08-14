@@ -10,11 +10,21 @@ var localStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var User = require("model/User");
 
+var nodemailer = require("nodemailer");
+var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "brianna.hawkins@macaulay.cuny.edu",
+        pass: "mnwj mfir bpok gsgn" //auto-generated password from 2 step app verification
+    }
+});
+
 mongoose.connect("mongodb://http://127.0.0.1:5500/client");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+//sign up for sapp
 app.post("/signup", async (req, res) => {
     var user = await User.create({
         username: req.body.username,
@@ -28,8 +38,10 @@ app.post("/signup", async (req, res) => {
     return res.status(200).json(user);
 });
 
+//login to app
 app.post("/login", (req, res));
 
+//add appointment for logged in user
 app.post("/calendar", (req, res) => {
     try {
         User.appointments.push(new Appointment(req.body.consert-date, req.body.concert-name));
