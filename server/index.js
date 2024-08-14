@@ -28,6 +28,17 @@ app.post("/signup", async (req, res) => {
     return res.status(200).json(user);
 });
 
+app.post("/login", (req, res));
+
+app.post("/calendar", (req, res) => {
+    try {
+        User.appointments.push(new Appointment(req.body.consert-date, req.body.concert-name));
+    }
+    catch (err) {
+        res.status(400).json({error: "error making appointment"});
+    }
+});
+
 server.listen(3000, () => console.log("Server listening on port 3000"));
 
 
