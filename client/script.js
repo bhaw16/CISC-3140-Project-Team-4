@@ -41,4 +41,6 @@ document.write(yearsDifference);
 
 
   }
-
+function navigateToLogin() {
+            window.location.href = 'login.html';
+        }
