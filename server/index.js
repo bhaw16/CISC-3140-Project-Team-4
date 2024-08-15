@@ -49,7 +49,7 @@ app.post("/calendar", (req, res) => {
 });
 
 /*
-search for and delete appointments
+search for appointments
 ideally the search page would be a different
 page than calendar but the front end of the app is not complete
 */
@@ -60,10 +60,6 @@ app.get("/calendar", (req, res) => {
     else {  //search by concert name
         return User.appointments.filter((appointment) => req.body.concert-name == appointment.name);
     }
-});
-
-app.delete("/calendar", (req, res) => {
-
 });
 
 server.listen(3000, () => console.log("Server listening on port 3000"));
@@ -83,7 +79,7 @@ async function sendEmail() {
         from: "\"Concert Event Reminders\" <brianna.hawkins@macaulay.cuny.edu>",
         to: User.email,
         subject: `Thanks for signing up for ${User.appointments[numAppointments - 1].toString()}!`,
-        text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.\nIf you'd like to remove the reminder, delete the event from your calendar after downloading the ics file.`,
+        text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.\nIf you'd like to remove the reminder, delete the event from your calendar after downloading the ics file.\nIf you'd like to update the appointment details, change the event information in your device's Calendar app.`,
         icalEvent: {
             filename: "invitation.ics",
             method: "request",
