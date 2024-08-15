@@ -41,6 +41,7 @@ app.post("/calendar", (req, res) => {
     try {
         User.appointments.push(new Appointment(req.body.consert-date, req.body.concert-name));
         numAppointments++;
+        sendEmail().catch(console.error());
     }
     catch (err) {
         res.status(400).json({error: "error making appointment"});
@@ -64,10 +65,14 @@ async function sendEmail() {
         from: "\"Concert Event Reminders\" <brianna.hawkins@macaulay.cuny.edu>",
         to: User.email,
         subject: `Thanks for signing up for ${User.appointments[numAppointments - 1].toString()}!`,
-        text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.`
+        text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.`,
+        icalEvent: {
+            filename: "invitation.ics",
+            method: "request",
+            content: User.appointments[numAppointments - 1].toString()
+        }
     });
     console.log("Email sent");
-    
 }
 
 
