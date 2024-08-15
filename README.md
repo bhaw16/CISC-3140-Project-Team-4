@@ -28,4 +28,4 @@ Bandsintown has an API that has real time concert data for musicians, but obtain
 # Team Members & Roles
 1. Asma Ramisa - **HTML & CSS coder**
 2. Brianna Hawkins - **Project Manager**, **Node.js & back-end programmer**
-3. Omaid Noori - **JS programmer/scripter**
+3. Omaid Noori - **JS programmer/scripter & flowchart creator**
