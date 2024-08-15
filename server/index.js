@@ -11,13 +11,8 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var User = require("model/User");
 
 var nodemailer = require("nodemailer");
-var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "brianna.hawkins@macaulay.cuny.edu",
-        pass: "mnwj mfir bpok gsgn" //auto-generated password from 2 step app verification
-    }
-});
+
+var numAppointments = 0;
 
 mongoose.connect("mongodb://http://127.0.0.1:5500/client");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,6 +40,7 @@ app.post("/login", (req, res));
 app.post("/calendar", (req, res) => {
     try {
         User.appointments.push(new Appointment(req.body.consert-date, req.body.concert-name));
+        numAppointments++;
     }
     catch (err) {
         res.status(400).json({error: "error making appointment"});
@@ -52,6 +48,30 @@ app.post("/calendar", (req, res) => {
 });
 
 server.listen(3000, () => console.log("Server listening on port 3000"));
+
+async function sendEmail() {
+    var transporter = nodemailer.createTransport({
+        service: "gmail",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "brianna.hawkins@macaulay.cuny.edu",
+            pass: "mnwj mfir bpok gsgn" //auto-generated password from 2 step app verification
+        }
+    });
+
+    try {
+        await transporter.sendMail({
+            from: "\"Concert Event Reminders\" <brianna.hawkins@macaulay.cuny.edu>",
+            to: User.email,
+            subject: `Thanks for signing up for ${User.appointments[numAppointments - 1].toString()}!`,
+            text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.`
+        });
+    }
+    catch (err) {
+        console.log("error sending email");
+    }
+}
 
 
 
