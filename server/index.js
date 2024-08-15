@@ -16,11 +16,16 @@ var nodemailer = require("nodemailer");
 var numAppointments = 0;
 
 mongoose.connect("mongodb://http://127.0.0.1:5500/client");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//sign up for sapp
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//sign up for app
 app.post("/signup", async (req, res) => {
     user = await User.create({
         username: req.body.username,
