@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Event Calendar
-        </title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
         <h1>2024 Calendar</h1>
-        <table>
-            <tr>
-                <thead>January</thead>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </table>
-         <form hidden method="post"> <!--hide until user picks day on the Calendar
-            in JS script using removeAttribute()-->
-            <input type="datetime-local" name="concert-date" required>
-            <!--use the setAttribute() function in the JS script to make
-            the placeholder value the selected date on the calendar-->
-            <input type="text" name="concert-name" placeholder="Name of Concert" required>
-            <!--<input type="time" name="concert-time" required>-->
-            <input type="submit">
-        </form>
-    </body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Calendar</h2>
+            <!-- Calendar Container -->
+            <div id="calendar"></div>
+            <!-- Button to Add Event -->
+            <button id="addEventButton">Add Event</button>
+            <!-- Event Form -->
+            <form id="eventForm" hidden method="post">
+                <input type="datetime-local" id="concert-date" name="concert-date" required>
+                <input type="text" id="concert-name" name="concert-name" placeholder="Name of Concert" required>
+                <input type="submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Concert Event Reminders</p>
+    </footer>
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+    <!-- Custom JS -->
+    <script src="calendar.js"></script>
+</body>
 </html>
