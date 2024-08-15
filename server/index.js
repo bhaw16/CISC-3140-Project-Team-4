@@ -60,17 +60,14 @@ async function sendEmail() {
         }
     });
 
-    try {
-        await transporter.sendMail({
-            from: "\"Concert Event Reminders\" <brianna.hawkins@macaulay.cuny.edu>",
-            to: User.email,
-            subject: `Thanks for signing up for ${User.appointments[numAppointments - 1].toString()}!`,
-            text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.`
-        });
-    }
-    catch (err) {
-        console.log("error sending email");
-    }
+    await transporter.sendMail({
+        from: "\"Concert Event Reminders\" <brianna.hawkins@macaulay.cuny.edu>",
+        to: User.email,
+        subject: `Thanks for signing up for ${User.appointments[numAppointments - 1].toString()}!`,
+        text: `Your concert is on ${User.appointments[numAppointments - 1].getDateString()}.\nSee the calendar invite below.`
+    });
+    console.log("Email sent");
+    
 }
 
 
